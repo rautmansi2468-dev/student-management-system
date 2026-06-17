@@ -18,6 +18,7 @@ public class Details {
     static ArrayList<Student> students = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
+    // Add Student
     public static void addStudent() {
 
         System.out.print("Enter Roll Number: ");
@@ -32,6 +33,7 @@ public class Details {
         System.out.println("Student Added Successfully!");
     }
 
+    // Display Students
     public static void displayStudents() {
 
         if (students.isEmpty()) {
@@ -44,8 +46,33 @@ public class Details {
         for (Student s : students) {
             System.out.println(
                     "Roll No: " + s.rollNo
-                    + " | Name: " + s.name
-            );
+                    + " | Name: " + s.name);
+        }
+    }
+
+    // Search Student
+    public static void searchStudent() {
+
+        System.out.print("Enter Roll Number to Search: ");
+        int roll = sc.nextInt();
+
+        boolean found = false;
+
+        for (Student s : students) {
+
+            if (s.rollNo == roll) {
+
+                System.out.println("\n===== STUDENT FOUND =====");
+                System.out.println("Roll No: " + s.rollNo);
+                System.out.println("Name    : " + s.name);
+
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Student Not Found!");
         }
     }
 
@@ -58,9 +85,11 @@ public class Details {
             System.out.println("==========================");
             System.out.println("1. Add Student");
             System.out.println("2. Display Students");
-            System.out.println("3. Exit");
+            System.out.println("3. Search Student");
+            System.out.println("4. Exit");
 
             System.out.print("Enter Choice: ");
+
             int choice = sc.nextInt();
 
             switch (choice) {
@@ -74,6 +103,10 @@ public class Details {
                     break;
 
                 case 3:
+                    searchStudent();
+                    break;
+
+                case 4:
                     System.out.println("Thank You!");
                     System.exit(0);
 
