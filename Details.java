@@ -87,6 +87,30 @@ public class Details {
         System.out.println("Student Not Found!");
     }
 
+    // Update Student
+    public static void updateStudent() {
+
+        System.out.print("Enter Roll Number to Update: ");
+        int roll = sc.nextInt();
+        sc.nextLine();
+
+        for (Student s : students) {
+
+            if (s.rollNo == roll) {
+
+                System.out.print("Enter New Name: ");
+                String newName = sc.nextLine();
+
+                s.name = newName;
+
+                System.out.println("Student Updated Successfully!");
+                return;
+            }
+        }
+
+        System.out.println("Student Not Found!");
+    }
+
     public static void main(String[] args) {
 
         while (true) {
@@ -98,7 +122,8 @@ public class Details {
             System.out.println("2. Display Students");
             System.out.println("3. Search Student");
             System.out.println("4. Delete Student");
-            System.out.println("5. Exit");
+            System.out.println("5. Update Student");
+            System.out.println("6. Exit");
 
             System.out.print("Enter Choice: ");
 
@@ -123,6 +148,10 @@ public class Details {
                     break;
 
                 case 5:
+                    updateStudent();
+                    break;
+
+                case 6:
                     System.out.println("Thank You!");
                     System.exit(0);
 
