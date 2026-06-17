@@ -6,10 +6,26 @@ class Student {
 
     int rollNo;
     String name;
+    int marks;
+    String grade;
 
-    Student(int rollNo, String name) {
+    Student(int rollNo, String name, int marks) {
+
         this.rollNo = rollNo;
         this.name = name;
+        this.marks = marks;
+
+        if (marks >= 90) {
+            grade = "A+";
+        } else if (marks >= 80) {
+            grade = "A";
+        } else if (marks >= 70) {
+            grade = "B";
+        } else if (marks >= 60) {
+            grade = "C";
+        } else {
+            grade = "Fail";
+        }
     }
 }
 
@@ -20,6 +36,7 @@ public class Details {
 
     // Add Student
     public static void addStudent() {
+
         System.out.print("Enter Roll Number: ");
         int roll = sc.nextInt();
         sc.nextLine();
@@ -27,7 +44,10 @@ public class Details {
         System.out.print("Enter Name: ");
         String name = sc.nextLine();
 
-        students.add(new Student(roll, name));
+        System.out.print("Enter Marks: ");
+        int marks = sc.nextInt();
+
+        students.add(new Student(roll, name, marks));
 
         System.out.println("Student Added Successfully!");
     }
@@ -40,10 +60,15 @@ public class Details {
             return;
         }
 
-        System.out.println("\n===== STUDENT LIST =====");
+        System.out.println("\n========== STUDENT LIST ==========");
 
         for (Student s : students) {
-            System.out.println("Roll No: " + s.rollNo + " | Name: " + s.name);
+
+            System.out.println(
+                    "Roll No: " + s.rollNo
+                    + " | Name: " + s.name
+                    + " | Marks: " + s.marks
+                    + " | Grade: " + s.grade);
         }
     }
 
@@ -58,8 +83,11 @@ public class Details {
             if (s.rollNo == roll) {
 
                 System.out.println("\n===== STUDENT FOUND =====");
-                System.out.println("Roll No: " + s.rollNo);
-                System.out.println("Name: " + s.name);
+                System.out.println("Roll No : " + s.rollNo);
+                System.out.println("Name    : " + s.name);
+                System.out.println("Marks   : " + s.marks);
+                System.out.println("Grade   : " + s.grade);
+
                 return;
             }
         }
@@ -101,7 +129,23 @@ public class Details {
                 System.out.print("Enter New Name: ");
                 String newName = sc.nextLine();
 
+                System.out.print("Enter New Marks: ");
+                int newMarks = sc.nextInt();
+
                 s.name = newName;
+                s.marks = newMarks;
+
+                if (newMarks >= 90) {
+                    s.grade = "A+";
+                } else if (newMarks >= 80) {
+                    s.grade = "A";
+                } else if (newMarks >= 70) {
+                    s.grade = "B";
+                } else if (newMarks >= 60) {
+                    s.grade = "C";
+                } else {
+                    s.grade = "Fail";
+                }
 
                 System.out.println("Student Updated Successfully!");
                 return;
@@ -115,9 +159,9 @@ public class Details {
 
         while (true) {
 
-            System.out.println("\n==========================");
+            System.out.println("\n==============================");
             System.out.println(" STUDENT MANAGEMENT SYSTEM");
-            System.out.println("==========================");
+            System.out.println("==============================");
             System.out.println("1. Add Student");
             System.out.println("2. Display Students");
             System.out.println("3. Search Student");
