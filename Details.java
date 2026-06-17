@@ -20,7 +20,6 @@ public class Details {
 
     // Add Student
     public static void addStudent() {
-
         System.out.print("Enter Roll Number: ");
         int roll = sc.nextInt();
         sc.nextLine();
@@ -44,9 +43,7 @@ public class Details {
         System.out.println("\n===== STUDENT LIST =====");
 
         for (Student s : students) {
-            System.out.println(
-                    "Roll No: " + s.rollNo
-                    + " | Name: " + s.name);
+            System.out.println("Roll No: " + s.rollNo + " | Name: " + s.name);
         }
     }
 
@@ -56,24 +53,38 @@ public class Details {
         System.out.print("Enter Roll Number to Search: ");
         int roll = sc.nextInt();
 
-        boolean found = false;
-
         for (Student s : students) {
 
             if (s.rollNo == roll) {
 
                 System.out.println("\n===== STUDENT FOUND =====");
                 System.out.println("Roll No: " + s.rollNo);
-                System.out.println("Name    : " + s.name);
-
-                found = true;
-                break;
+                System.out.println("Name: " + s.name);
+                return;
             }
         }
 
-        if (!found) {
-            System.out.println("Student Not Found!");
+        System.out.println("Student Not Found!");
+    }
+
+    // Delete Student
+    public static void deleteStudent() {
+
+        System.out.print("Enter Roll Number to Delete: ");
+        int roll = sc.nextInt();
+
+        for (int i = 0; i < students.size(); i++) {
+
+            if (students.get(i).rollNo == roll) {
+
+                students.remove(i);
+
+                System.out.println("Student Deleted Successfully!");
+                return;
+            }
         }
+
+        System.out.println("Student Not Found!");
     }
 
     public static void main(String[] args) {
@@ -86,7 +97,8 @@ public class Details {
             System.out.println("1. Add Student");
             System.out.println("2. Display Students");
             System.out.println("3. Search Student");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Student");
+            System.out.println("5. Exit");
 
             System.out.print("Enter Choice: ");
 
@@ -107,6 +119,10 @@ public class Details {
                     break;
 
                 case 4:
+                    deleteStudent();
+                    break;
+
+                case 5:
                     System.out.println("Thank You!");
                     System.exit(0);
 
