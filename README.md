@@ -1,12 +1,18 @@
 # Student Management System
 
-A Java console-based Student Management System.
+A Java console-based application to manage student records.
 
 ## Features
 
 - Add Student
 - Display Students
 - Search Student by Roll Number
+
+## Project Progress
+
+- Version 1: Add Student
+- Version 2: Multiple Students Support
+- Version 3: Search Student Feature
 
 ## Technologies Used
 
@@ -16,9 +22,12 @@ A Java console-based Student Management System.
 - Git
 - GitHub
 
-## Current Version
+## Future Enhancements
 
-Version 3
+- Delete Student
+- Update Student Details
+- Marks & Grade System
+- File Storage
 
 ## Author
 
