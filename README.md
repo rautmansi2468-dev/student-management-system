@@ -1,33 +1,34 @@
 # Student Management System
 
-A simple Java console-based application for managing student records.
+A Java console-based application to manage student records.
 
 ## Features
 
 - Add Student
-- Display Student Information
-- Store Student Details
+- Display Students
+- Search Student by Roll Number
+
+## Project Progress
+
+- Version 1: Add Student
+- Version 2: Multiple Students Support
+- Version 3: Search Student Feature
 
 ## Technologies Used
 
 - Java
-- Object-Oriented Programming (OOP)
+- ArrayList
+- Scanner
+- Git
+- GitHub
 
-## How to Run
+## Future Enhancements
 
-1. Compile:
-
-```bash
-javac Details.java
-```
-
-2. Run:
-
-```bash
-java Details
-```
+- Delete Student
+- Update Student Details
+- Marks & Grade System
+- File Storage
 
 ## Author
 
 Mansi Raut
-BCA Student
