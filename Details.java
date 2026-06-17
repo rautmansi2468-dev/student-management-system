@@ -19,6 +19,7 @@ public class Details {
     static Scanner sc = new Scanner(System.in);
 
     public static void addStudent() {
+
         System.out.print("Enter Roll Number: ");
         int roll = sc.nextInt();
         sc.nextLine();
@@ -32,12 +33,13 @@ public class Details {
     }
 
     public static void displayStudents() {
+
         if (students.isEmpty()) {
-            System.out.println("No Students Found.");
+            System.out.println("No Students Available.");
             return;
         }
 
-        System.out.println("\nStudent List:");
+        System.out.println("\n===== STUDENT LIST =====");
 
         for (Student s : students) {
             System.out.println(
@@ -47,27 +49,18 @@ public class Details {
         }
     }
 
-    public static void deleteStudent() {
-        System.out.print("Enter Roll Number to Delete: ");
-        int roll = sc.nextInt();
-
-        students.removeIf(student -> student.rollNo == roll);
-
-        System.out.println("Student Deleted Successfully!");
-    }
-
     public static void main(String[] args) {
 
         while (true) {
 
-            System.out.println("\n===== STUDENT MANAGEMENT SYSTEM =====");
+            System.out.println("\n==========================");
+            System.out.println(" STUDENT MANAGEMENT SYSTEM");
+            System.out.println("==========================");
             System.out.println("1. Add Student");
             System.out.println("2. Display Students");
-            System.out.println("3. Delete Student");
-            System.out.println("4. Exit");
+            System.out.println("3. Exit");
 
-            System.out.print("Choose Option: ");
-
+            System.out.print("Enter Choice: ");
             int choice = sc.nextInt();
 
             switch (choice) {
@@ -81,10 +74,6 @@ public class Details {
                     break;
 
                 case 3:
-                    deleteStudent();
-                    break;
-
-                case 4:
                     System.out.println("Thank You!");
                     System.exit(0);
 
